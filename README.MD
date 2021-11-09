@@ -9,3 +9,5 @@ cmake ..
 make
 ./Game
 ```
+### 2. Controls
+Move left and right with `Q` and `D`, and jump with `Z`.
