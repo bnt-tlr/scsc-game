@@ -4,12 +4,18 @@
 #include <SFML/Window/Event.hpp>
 #include "Player.h"
 #include "Scenery.h"
+#include "Math.h"
 
 int main() {
     sf::RenderWindow window(sf::VideoMode(1000, 800), "Game");
     Scenery scenery = Scenery();
 
     scenery.newPlayer(new Player(25, 650));
+    scenery.newPlayer(new Player(400, 650, 50, 50, sf::Color::Red));
+
+    scenery.getPlayers()[0]->setMass(10);
+    scenery.getPlayers()[1]->setMass(10);
+
     scenery.newPlatform(new Platform(0, 700, 1000, 25, sf::Color::White));
     scenery.newPlatform(new Platform(500, 600, 200, 25, sf::Color::Blue));
     scenery.newPlatform(new Platform(750, 500, 200, 25, sf::Color::Red));
@@ -40,7 +46,7 @@ int main() {
                     break;
                 case sf::Keyboard::Z:
                     // DISALLOW JUMP IF FALLING (EXCEPT FOR SMALL VY)
-                    if (scenery.getPlayers()[0]->getVy() >= -0.1 && scenery.getPlayers()[0]->getVy() <= 0.1)
+                    if (scenery.getPlayers()[0]->getVelocity().y >= -0.1 && scenery.getPlayers()[0]->getVelocity().y <= 0.1)
                         scenery.getPlayers()[0]->setJmp(1);
                     break;
                 }

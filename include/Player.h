@@ -15,11 +15,10 @@ public:
     Player(float xPosition, float yPosition);
     Player(float xPosition, float yPosition, float xSize, float ySize, sf::Color color);
 
-    float getVx() const;
     void setVx(float vx);
-
-    float getVy() const;
     void setVy(float vy);
+    sf::Vector2f getVelocity();
+    void setVelocity(sf::Vector2f newVelocity);
 
     bool isMoveLeft() const;
     void setMoveLeft(bool moveLeft);
@@ -30,9 +29,13 @@ public:
     bool isJmp() const;
     void setJmp(bool jmp);
 
+    int getMass()const;
+    void setMass(int mass);
+
 
 private:
-    float vx, vy;
+    sf::Vector2f velocity;
+    float mass;
     bool move_left = false, move_right = false, jmp = false;
 
 };

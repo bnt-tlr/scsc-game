@@ -3,25 +3,24 @@
 Player::Player(float xPosition, float yPosition) : Player(xPosition, yPosition, 50, 50, sf::Color::Green) {};
 Player::Player(float xPosition, float yPosition, float xSize, float ySize, sf::Color color) :
         Object(xPosition, yPosition, xSize, ySize, color) {
-    Player::vx = 0.5;
-    Player::vy = 0;
-}
-
-float Player::getVx() const {
-    return Player::vx;
+    velocity.x = 0;
+    velocity.y = 0;
 }
 
 void Player::setVx(float vx) {
-    Player::vx = vx;
+    Player::velocity.x = vx;
 }
-
-float Player::getVy() const {
-    return Player::vy;
-}
-
 
 void Player::setVy(float vy) {
-    Player::vy = vy;
+    Player::velocity.y = vy;
+}
+
+sf::Vector2f Player::getVelocity() {
+    return velocity;
+}
+
+void Player::setVelocity(sf::Vector2f newVelocity) {
+    velocity = newVelocity;
 }
 
 bool Player::isMoveLeft() const {
@@ -46,4 +45,12 @@ bool Player::isJmp() const {
 
 void Player::setJmp(bool jmp) {
     Player::jmp = jmp;
+}
+
+int Player::getMass() const {
+    return mass;
+}
+
+void Player::setMass(int mass) {
+    Player::mass = mass;
 }

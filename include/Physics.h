@@ -17,6 +17,7 @@ private:
     static void updateSpeed(Player* player, float dt);
     static void calculateMovement(Player* player, Object* object, float currentX, float currentY);
     static void screenCollision(Player* player, sf::RenderWindow* window);
+    static void calculatePlayerCollision(Player* player, Player* target);
 };
 
 

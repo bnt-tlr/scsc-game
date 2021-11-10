@@ -5,6 +5,6 @@ find_package(SFML REQUIRED system window graphics)
 
 file(GLOB_RECURSE SRC_FILES src/*.cpp)
 
-add_executable(Game ${SRC_FILES})
+add_executable(Game ${SRC_FILES} src/Math.cpp include/Math.h)
 target_include_directories(Game PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${SFML_INCLUDE_DIR})
 target_link_libraries(Game sfml-graphics sfml-window)
